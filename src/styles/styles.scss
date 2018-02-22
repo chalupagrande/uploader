@@ -1,0 +1,191 @@
+// IMPORTS 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+// VARIABLES
+$browser-context: 14; // Default
+$accent: #6b91ee;
+$accent2: #92abe8;
+$font-color: #3d4852;
+
+// FUNCTIONS
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+// GLOBALS
+body {
+  background: $accent;
+  font-size: $browser-context;
+  font-family: 'Montserrat', sans-serif;
+  color: #3d4852;
+  box-sizing: border-box;
+}
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+//typography
+.h1,.h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.bold {
+  font-weight: 700;
+}
+a {
+  color: $accent;
+  text-decoration: none;
+}
+.spaced {
+  letter-spacing: 3px;
+  line-height: 2rem;
+}
+
+
+// COMPONENT STYLES
+.uploader {
+  padding: 1em;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  min-height: 300px;
+  border-radius: 20px;
+  font-size: 1rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  
+  
+}
+
+.uploader__file-list {
+  margin: 1rem 0;
+}
+
+.uploader__file-drop {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  min-height: 150px;
+  width: 100%;
+  border: 3px dashed $accent;
+  border-radius: em(16);
+}
+
+.input-form {
+  display: none;
+}
+
+.file {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 100%;
+  margin: 0.2em 0;
+}
+.file__content {
+  flex: 1;
+  max-width: 270px;
+}
+.file .icon {
+  flex: 0 0 auto;
+  flex-basis: 2.5em;
+  min-width: 2.5em;
+  margin-right: 0.5em;
+}
+.file .status-icon {
+  cursor: pointer;
+  transition: transform 0.2s;
+  width: 1.5em;
+}
+.file .status-icon:hover {
+  transform: scale(1.5);
+}
+.file__meta {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.file__progress {
+  width: 100%;
+  position: relative
+}
+.file__progress--base {
+  position: absolute;
+  width: 100%;
+  border-top: 1px solid black;
+}
+.file__progress--uploaded {
+  position: absolute;
+  width: 0%;
+  border-top: 2px solid green;
+  transition: width 0.1s;
+}
+.file__progress--uploaded.done {
+  width: 100%;
+}
+
+.file-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0.5em;
+}
+
+.upload-button {
+  margin: 1em;
+  cursor: pointer;
+  transition: transform 0.3s,
+              background-color 0.2s,
+              box-shadow 0.2s;
+
+  transform: rotateX(90deg);
+}
+
+.upload-button.isVisible {
+  transform: rotateX(0deg);
+}
+.upload-button:hover {
+  transform: translate(0px, -1px);
+  background-color: $accent2;
+  box-shadow: 0px 1px 4px rgba(0,0,0,0.3);
+}
+
+
+// STATES
+.is-draggedOver {
+  border-color: lightgreen;
+  border-style: solid;
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
+}
+
+// reusables
+.button {
+  text-transform: uppercase;
+  background-color: $accent;
+  border-radius: 8px;
+  border: none;
+  font-size: $browser-context;
+  font-weight: 700;
+  padding: 0.2em 0.5em;
+  color: white;
+  min-width: 100px;
+}
+
+.icon {
+  width: 1em;
+  height: auto;
+}

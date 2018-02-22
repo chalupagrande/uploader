@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Uploader</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <div class="uploader">
+    <h1 class="h1 spaced bold">Upload File</h1>
+    <div class="uploader__file-list" id="js-uploader__file-list">
+        <!-- FILES TO UPLOAD WILL APPEAR HERE -->
+    </div>
+    <div class="uploader__file-drop" id="js-uploader__file-drop">
+      <h2 class='h2 spaced'>
+        <span id="drag-qualifier">drag file here <br/> or </span><a id="js-browse" href='#'>browse <span id='browse-qualifier'>files</span></a>
+      </h2>
+      <!-- hidden input form --> 
+      <form class="input-form" id="input-form" action="" enctype="multipart/form-data">
+        <input  id="file-input" type="file">
+      </form>
+    </div>
+    <button class="button upload-button spaced" id="js-upload-button">Upload</button>
+  </div>
+<script src="scripts/app.js"></script>
+</body>
+</html>
