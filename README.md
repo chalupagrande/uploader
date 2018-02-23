@@ -7,8 +7,8 @@ This is a design challenge to make a file uploader.
 ```
 $ git clone https://github.com/ninth-mind/uploader.git
 $ cd uploader
-$ npm install 
-$ npm start
+$ yarn install 
+$ yarn start
 ```
 Then navigate to `http://localhost:3000`
 
